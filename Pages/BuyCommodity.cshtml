@@ -1,0 +1,17 @@
+﻿@page
+@model PreTaobao.Pages.BuyCommodityModel
+@{
+}
+
+<html>
+<body>
+    <p>商品名称：@Model.commodity.name</p>
+    <p>商品价格：@Model.commodity.price</p>
+    <form method="post">
+        <p>你要购买的数量：<input asp-for="num_buy"/></p>
+        <p><input type="submit" value="确认购买"/></p>
+    </form>
+    <p>@Model.message</p>
+    
+</body>
+</html>

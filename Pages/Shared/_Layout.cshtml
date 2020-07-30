@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="/css/MyCss.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="header">
+        <h1>星辉棋牌</h1>
+    </div>
+    <div class="topnav">
+        <a href="@MyWeb.Pre_Web/Commodity">浏览商品</a>
+        <a href="@MyWeb.Pre_Web/MyCard">我的收藏</a>
+        <a href="@MyWeb.Pre_Web/MyInfor">个人信息</a>
+        @{
+            var flag = 0;
+        }
+
+        <a href="@MyWeb.Pre_Web/login">
+            @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+            @{
+                var message = "请先登陆";
+                @foreach (var cookie in HttpContextAccessor.HttpContext.Request.Cookies)
+                {
+                    if (@cookie.Key.Equals("name"))
+                    {
+                        message = @cookie.Value;
+                        if(message.Equals("mashuo"))
+                            flag = 1;
+                        message = message + "你好！";
+                    }
+                }
+                if (string.IsNullOrEmpty(message))
+                {
+                    message = "请先登陆";
+                }
+
+                @message;
+            }
+        </a>
+        @if (@flag == 1)
+        {
+            <a href="@MyWeb.Pre_Web/AddCommodity">添加商品</a>
+        }
+
+        <a href="@MyWeb.Pre_Web/Register">注册</a>
+    </div>
+
+
+
+    <div class="left_menu">
+        <nav>
+            <ul>
+                 <li>棋牌故事</li>
+                 <li>晶源岛</li>
+                 <li>制卡师</li>
+                 <li>风的旅商</li>
+                 <li>魔法都市——书乐</li>
+
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <div class="main">
+        @RenderBody()
+    </div>
+</body>
+</html>
+
+
+<footer class="footer">
+    2020 - 星辉棋牌
+</footer>
+

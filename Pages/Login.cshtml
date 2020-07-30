@@ -1,0 +1,47 @@
+﻿@page
+@model PreTaobao.Pages.LoginModel
+@{
+}
+
+@{
+    var name = string.Empty;
+    if (Request.HasFormContentType)
+    {
+        name = Request.Form["name"];
+    }
+}
+    <html>
+    <body>
+        <div style="margin-top:30px;">
+            <form method="post">
+                <div>
+                    UserName: <input asp-for="user" />
+                </div>
+
+                <div>
+                    Password: <input type="password" asp-for="pwd" />
+                </div>
+                <div>
+                    <input type="submit" value="登陆"/>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            @if (!string.IsNullOrEmpty(@Model.user))
+            {
+                @if (@Model.login())
+                {
+                    Response.Redirect(MyWeb.Pre_Web+"/test", false);
+                    
+                    <p>Connect Success</p>
+                }
+                else
+                {
+                    <p>用户名或者密码错误请重新输入</p>
+                }
+            }
+        </div>
+
+    </body>
+    </html>

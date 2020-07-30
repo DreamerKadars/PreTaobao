@@ -1,0 +1,35 @@
+﻿@page
+@model PreTaobao.Pages.RegisterModel
+@{
+}
+    <html>
+    <body>
+        <div style="margin-top:30px;">
+            <form method="post">
+                <div>
+                    请输入用户账号（只有数字）: <input asp-for="user" />
+                </div>
+
+                <div>
+                    请输入用户昵称: <input asp-for="name" />
+                </div>
+
+                <div>
+                    请输入密码: <input type="password" asp-for="pwd" />
+                </div>
+
+                <div>
+                    请再次输入密码: <input type="password" asp-for="pwd_again" />
+                </div>
+
+                <div>
+                    <input type="submit" />
+                </div>
+
+            </form>
+
+            <h1>@Model.message_re</h1>
+
+        </div>
+    </body>
+    </html>

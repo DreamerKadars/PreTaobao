@@ -1,0 +1,23 @@
+﻿@page
+@model PreTaobao.Pages.MyInforModel
+@{
+}
+    <html>
+    <body>
+        @if (Model.user.uid != -1) {
+        <p>我的账户：@Model.user.user</p>
+        <p>我的名字：@Model.user.name</p>
+        <p>我的余额：@Model.user.money</p>
+        <p>我的卡牌：@Model.user.num_cards</p>
+        <form method="post">
+            <input type="submit" value="获得5块钱"/>
+        </form>
+        }
+        else
+        {
+            <p>请先登陆</p>
+        }
+
+    </body>
+    </html>
+        

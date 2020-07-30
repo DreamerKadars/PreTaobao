@@ -1,0 +1,171 @@
+﻿CREATE TABLE `Commodity` (
+  `cid` int (11) NOT NULL,
+  `price` int (11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `image` varchar(45) NOT NULL,
+  PRIMARY KEY(`cid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE = utf8_general_ci;
+CREATE TABLE `Information` (
+  `uid` int (11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `money` int (11) NOT NULL,
+  `num_cards` int (11) NOT NULL,
+   PRIMARY KEY(`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE = utf8_general_ci;
+CREATE TABLE `Login` (
+  `uid` int (11) NOT NULL,
+  `user` varchar(45) NOT NULL,
+  `Pwd` varchar(45) NOT NULL,
+  PRIMARY KEY(`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE = utf8_general_ci;
+CREATE TABLE `UserCard` (
+  `uid` int (11) NOT NULL,
+  `cid` int (11) NOT NULL,
+  `num` int (11) NOT NULL,
+   PRIMARY KEY(`uid`,`cid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE = utf8_general_ci;
+
+
+
+bash-3.2$ ab -n 100 -c 10 www.loveranran.xyz/
+This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking www.loveranran.xyz (be patient).....done
+
+
+Server Software:        nginx/1.9.9
+Server Hostname:        www.loveranran.xyz
+Server Port:            80
+
+Document Path:          /
+Document Length:        3080 bytes
+
+Concurrency Level:      10
+Time taken for tests:   3.113 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      321600 bytes
+HTML transferred:       308000 bytes
+Requests per second:    32.13 [#/sec] (mean)
+Time per request:       311.275 [ms] (mean)
+Time per request:       31.128 [ms] (mean, across all concurrent requests)
+Transfer rate:          100.90 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       26   35   5.2     34      57
+Processing:    28  122 270.3     36    1974
+Waiting:       27   66 101.5     35     754
+Total:         55  157 271.6     70    2005
+
+Percentage of the requests served within a certain time (ms)
+  50%     70
+  66%     74
+  75%     77
+  80%     81
+  90%    458
+  95%    596
+  98%   1113
+  99%   2005
+ 100%   2005 (longest request)
+
+
+
+
+
+用完文件服务器之后
+
+ashuodeMacBook-Pro:~ mashuo$ ab -n 100 -c 10 www.loveranran.xyz/
+This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking www.loveranran.xyz (be patient).....done
+
+
+Server Software:        nginx/1.9.9
+Server Hostname:        www.loveranran.xyz
+Server Port:            80
+
+Document Path:          /
+Document Length:        537 bytes
+
+Concurrency Level:      10
+Time taken for tests:   1.652 seconds
+Complete requests:      100
+Failed requests:        0
+Non-2xx responses:      100
+Total transferred:      71000 bytes
+HTML transferred:       53700 bytes
+Requests per second:    60.53 [#/sec] (mean)
+Time per request:       165.213 [ms] (mean)
+Time per request:       16.521 [ms] (mean, across all concurrent requests)
+Transfer rate:          41.97 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       27   43  15.8     35      75
+Processing:    27   47  86.1     34     840
+Waiting:       27   44  80.7     34     840
+Total:         54   90  87.6     76     889
+
+Percentage of the requests served within a certain time (ms)
+  50%     76
+  66%     84
+  75%     96
+  80%     99
+  90%    106
+  95%    110
+  98%    376
+  99%    889
+ 100%    889 (longest request)
+
+
+
+
+mashuodeMacBook-Pro:~ mashuo$ ab -n 100 -c 10 www.loveranran.xyz/
+This is ApacheBench, Version 2.3 <$Revision: 1826891 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking www.loveranran.xyz (be patient).....done
+
+
+Server Software:        nginx/1.9.9
+Server Hostname:        www.loveranran.xyz
+Server Port:            80
+
+Document Path:          /
+Document Length:        2005 bytes
+
+Concurrency Level:      10
+Time taken for tests:   1.595 seconds
+Complete requests:      100
+Failed requests:        66
+   (Connect: 0, Receive: 0, Length: 66, Exceptions: 0)
+Total transferred:      214364 bytes
+HTML transferred:       200764 bytes
+Requests per second:    62.70 [#/sec] (mean)
+Time per request:       159.488 [ms] (mean)
+Time per request:       15.949 [ms] (mean, across all concurrent requests)
+Transfer rate:          131.26 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       27   34   5.7     33      59
+Processing:    28   54  75.2     42     745
+Waiting:       28   53  75.3     42     745
+Total:         56   88  76.2     75     776
+
+Percentage of the requests served within a certain time (ms)
+  50%     75
+  66%     82
+  75%     87
+  80%     93
+  90%    124
+  95%    130
+  98%    318
+  99%    776
+ 100%    776 (longest request)

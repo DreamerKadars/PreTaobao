@@ -1,0 +1,45 @@
+﻿@page
+@model PreTaobao.Pages.CommodityModel
+@{
+}
+<html>
+<body>
+    @foreach (var com in Model.commodities)
+    {
+    <div class="product">
+
+        <div class="pro-img">
+            <a href="#">
+                @{
+                    string image_str = ImageServer.Image_loc + com.image.Remove(0, 8);
+                }
+                <img src=@image_str alt="" height="380" width="260">
+            </a>
+        </div>
+
+
+        <h3 class="name"><a href="#">@com.name</a></h3>
+
+        <p class="price">
+            <span>@com.price</span>元
+        </p>
+
+        <div class="mai">
+            @{
+                string aim = MyWeb.Pre_Web + "/BuyCommodity" + "?cid=" + com.cid;
+            }
+
+            <a href=@aim>
+                <h1>购买</h1>
+            </a>
+        </div>
+
+
+    </div>
+
+    }
+
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+body {
+}
+.header {
+    color:white;
+    background-image: url(timg.jpeg);
+    text-align: center;
+    padding: 20px;
+}
+.footer {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    background-image: url(timg.jpeg);
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.topnav {
+    width: 100%;
+    background-color: #333;
+    overflow:hidden;
+}
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.user {
+    width: 20%;
+}
+.left_menu {
+    float: left;
+    height: 1000px;
+    width: 18%;
+    color: #000000;
+    background-color: #C4E1FF;
+    border-right-style: solid;
+    border-right-color: #ff0000;
+    border-right-width: 5px;
+
+
+
+    border: medium double rgb(250,0,255);
+
+
+}
+.left_menu nav{
+    margin: 5px 10px 2px 5px;
+}
+
+.left_menu nav ul li {
+    margin: 10px 10px 10px 10px;
+}
+
+    .left_menu nav ul li:hover {
+        background-color: #00FFFF;
+        
+        color: black;
+    }
+
+.main {
+    float: right;
+    width: 80%;
+}
+
+.product {
+    /*border: medium double rgb(250,0,255);*/
+    display: inline-grid;
+    grid-template-rows: 100px 150px 150px;
+    grid-template-columns: 260px 100px;
+    grid-auto-flow: row dense;
+    border: medium double rgb(250,0,255);
+}
+
+.pro-img {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+    
+}
+.name {
+    text-align: center;
+}
+.mai {
+    text-align: center;
+}
+.price {
+    text-align: center;
+}
+
+
+
+
+

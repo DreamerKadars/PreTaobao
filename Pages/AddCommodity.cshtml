@@ -1,0 +1,16 @@
+﻿@page
+@model PreTaobao.Pages.AddCommodityModel
+@{
+}
+    <html>
+    <body>
+
+        <form method="post" enctype="multipart/form-data">
+            请输入商品名称<input asp-for="commodity.name" /><br>
+            请输入商品价格<input asp-for="commodity.price" /><br>
+            请选择商品图片<input asp-for="file" accept="image/png" /><br>
+            <input type="submit" />
+        </form>
+        @Model.message
+    </body>
+    </html>

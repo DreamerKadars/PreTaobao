@@ -1,0 +1,17 @@
+﻿@page
+@model PreTaobao.Pages.MyCardModel
+@{
+}
+<html>
+<body>
+    @Model.message
+    @for (int i = 0; i < Model.C_List.Count; i++)
+    {
+        <p><img src="@Model.Commodities[i].image.Remove(0, 8)" alt=""></p>
+        <p>商品名称:@Model.Commodities[i].name</p>
+        <p>商品价格:@Model.Commodities[i].price</p>
+        <p>你拥有的数量:@Model.C_List[i].Value</p>
+    }
+
+</body>
+</html>

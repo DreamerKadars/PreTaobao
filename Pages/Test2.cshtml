@@ -1,0 +1,16 @@
+﻿@page
+
+@model Test2
+
+<div style="margin-top:30px;">
+    <form method="post">
+        <div>Name: <input asp-for="Name" /></div>
+        <div><input type="submit" /></div>
+    </form>
+    @if (!string.IsNullOrEmpty(Model.Name))
+    {
+        <p>Hello @Model.Name!</p>
+    }
+</div>
+
+@Html.PartialAsync("_Partial1", Model.Animals)
